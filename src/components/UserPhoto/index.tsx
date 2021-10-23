@@ -5,6 +5,10 @@ import avatarImg from '../../assets/avatar.png'
 
 import { styles } from './styles';
 
+import {LinearGradient} from 'expo-linear-gradient'
+import { COLORS } from '../../theme';
+
+
 const SIZES = {
   SMALL:{
     containerSize:32,
@@ -27,16 +31,30 @@ export function UserPhoto({imageUri, sizes = 'NORMAL'}:Props){
   const {containerSize, avatarSize} = SIZES[sizes];
 
   return (
-    <Image 
-      source={{ uri : imageUri || AVATAR_DEFAULT }}
+    <LinearGradient
+      colors={[COLORS.PINK, COLORS.YELLOW]}
+      start={{x:0, y:0.8}}
+      end={{x:0.9, y:1}}
       style={[
-        styles.avatar,
+        styles.container,
         {
-          width:avatarSize,
-          height:avatarSize,
-          borderRadius:avatarSize / 2
+          width:containerSize,
+          height:containerSize,
+          borderRadius:containerSize / 2
         }
       ]}
-    />
+    >
+      <Image 
+        source={{ uri : imageUri || AVATAR_DEFAULT }}
+        style={[
+          styles.avatar,
+          {
+            width:avatarSize,
+            height:avatarSize,
+            borderRadius:avatarSize / 2
+          }
+        ]}
+      />
+    </LinearGradient>
   );
 }

@@ -3,6 +3,7 @@
     "name": "nwlheatapp",
     "slug": "nwlheatapp",
     "version": "1.0.0",
+    "scheme": "nwlheatapp",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
